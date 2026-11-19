@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem Informasi KSR ITG</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="js/app.js" defer></script>
+</head>
+
+<body>
+
+    <!-- ================= LOGIN ================= -->
+
+    <div id="loginPage" class="login-page">
+        <div class="login-card">
+
+            <img src="assets/logo-ksr.png" class="login-logo" alt="Logo KSR PMI ITG">
+
+            <h1>KSR ITG</h1>
+            <p class="login-subtitle">Organization Management System</p>
+
+            <h2>Selamat Datang</h2>
+            <p class="login-description">
+                Silakan login untuk mengakses sistem informasi organisasi.
+            </p>
+
+            <form id="loginForm">
+                <div class="input-group">
+                    <i class="fa-solid fa-user"></i>
+                    <input type="text" id="username" placeholder="Username" required>
+                </div>
+
+                <div class="input-group">
+                    <i class="fa-solid fa-lock"></i>
+                    <input type="password" id="password" placeholder="Password" required>
+                    <button type="button" id="togglePassword" class="password-toggle">
+                        <i class="fa-solid fa-eye"></i>
+                    </button>
+                </div>
+
+                <label class="remember">
+                    <input type="checkbox" id="rememberMe">
+                    Remember Me
+                </label>
+
+                <button type="submit" class="btn-login">
+                    Login <i class="fa-solid fa-arrow-right"></i>
+                </button>
+
+                <p id="loginMessage" class="login-message"></p>
+            </form>
+
+            <small>© 2026 KSR PMI Unit Institut Teknologi Garut</small>
+        </div>
+    </div>
+
+    <!-- ================= DASHBOARD ================= -->
+
+    <div id="dashboardPage" class="dashboard hidden">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar" id="sidebar">
+
+            <div class="sidebar-brand">
+                <img src="assets/logo-ksr.png" alt="Logo KSR">
+                <div>
+                    <h3>KSR ITG</h3>
+                    <span>Organization System</span>
+                </div>
+            </div>
+
+            <div class="sidebar-menu">
+                <p class="menu-label">MENU UTAMA</p>
+
+                <a href="#" class="menu-link active" data-page="dashboard">
+                    <i class="fa-solid fa-house"></i>
+                    Dashboard
+                </a>
+
+                <a href="#" class="menu-link" data-page="anggota">
+                    <i class="fa-solid fa-users"></i>
+                    Data Anggota
+                </a>
+
+                <a href="#" class="menu-link" data-page="program">
+                    <i class="fa-solid fa-calendar-check"></i>
+                    Program Kerja
+                </a>
+
+                <a href="#" class="menu-link" data-page="anggaran">
+                    <i class="fa-solid fa-wallet"></i>
+                    Anggaran
+                </a>
+
+                <a href="#" class="menu-link" data-page="arsip">
+                    <i class="fa-solid fa-folder-open"></i>
+                    Arsip Dokumentasi
+                </a>
+
+                <a href="#" class="menu-link" data-page="laporan">
+                    <i class="fa-solid fa-file-lines"></i>
+                    Laporan
+                </a>
+
+                <p class="menu-label">ORGANISASI</p>
+
+                <a href="#" class="menu-link" data-page="organisasi">
+                    <i class="fa-solid fa-building"></i>
+                    Informasi Organisasi
+                </a>
+            </div>
+
+            <div class="sidebar-bottom">
+                <button id="logoutButton" class="logout-button">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    Keluar
+                </button>
+            </div>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="main-content">
+
+            <header class="topbar">
+                <button id="menuToggle" class="menu-toggle">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+
+                <div>
+                    <h2 id="pageTitle">Dashboard</h2>
+                    <p>Sistem Informasi Organisasi KSR ITG</p>
+                </div>
+
+                <div class="topbar-user">
+                    <div class="user-avatar">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+                    <div>
+                        <strong>Administrator</strong>
+                        <small>Admin KSR ITG</small>
+                    </div>
+                </div>
+            </header>
+
+            <div class="content-area">
+
+                <!-- ========== DASHBOARD ========== -->
+
+                <section id="page-dashboard" class="page-section active">
+
+                    <div class="welcome-banner">
+                        <div>
+                            <h2>Selamat Datang di KSR ITG!</h2>
+                            <p>
+                                Kelola data organisasi, anggota,
+                                program kerja, anggaran, dan dokumentasi.
+                            </p>
+                        </div>
+                        <i class="fa-solid fa-hand-holding-heart"></i>
+                    </div>
+
+                    <div class="stat-grid">
+
+                        <div class="stat-box">
+                            <div class="stat-icon pink">
+                                <i class="fa-solid fa-users"></i>
+                            </div>
+                            <div>
+                                <span>Total Anggota</span>
+                                <h2 id="dashAnggota">0</h2>
+                            </div>
+                        </div>
+
+                        <div class="stat-box">
+                            <div class="stat-icon purple">
+                                <i class="fa-solid fa-calendar-check"></i>
+                            </div>
+                            <div>
+                                <span>Program Kerja</span>
+                                <h2 id="dashProgram">0</h2>
+                            </div>
+                        </div>
+
+                        <div class="stat-box">
+                            <div class="stat-icon orange">
+                                <i class="fa-solid fa-folder-open"></i>
+                            </div>
+                            <div>
+                                <span>Arsip Dokumentasi</span>
+                                <h2 id="dashArsip">0</h2>
+                            </div>
+                        </div>
+
+                        <div class="stat-box">
+                            <div class="stat-icon green">
+                                <i class="fa-solid fa-wallet"></i>
+                            </div>
+                            <div>
+                                <span>Total Pemasukan</span>
+                                <h2 id="dashPemasukan">Rp0</h2>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="content-card">
+                        <h3>Informasi Sistem</h3>
+                        <p>
+                            Sistem Informasi Organisasi KSR PMI Unit
+                            Institut Teknologi Garut digunakan untuk
+                            membantu pengelolaan administrasi organisasi.
+                        </p>
+                    </div>
+
+                    <div class="content-card">
+                        <h3>Menu Cepat</h3>
+                        <div class="quick-grid">
+                            <button data-go="anggota">
+                                <i class="fa-solid fa-user-plus"></i>
+                                Tambah Anggota
+                            </button>
+
+                            <button data-go="program">
+                                <i class="fa-solid fa-calendar-plus"></i>
+                                Program Kerja
+                            </button>
+
+                            <button data-go="arsip">
+                                <i class="fa-solid fa-camera"></i>
+                                Arsip Dokumentasi
+                            </button>
+
+                            <button data-go="laporan">
+                                <i class="fa-solid fa-file-export"></i>
+                                Laporan
+                            </button>
+                        </div>
+                    </div>
+
+                </section>
+
+                <!-- ========== DATA ANGGOTA ========== -->
+
+                <section id="page-anggota" class="page-section">
+
+                    <div class="section-heading">
+                        <div>
+                            <h2>Data Anggota</h2>
+                            <p>Pengelolaan data anggota KSR ITG</p>
+                        </div>
+                    </div>
+
+                    <div class="content-card">
+
+                        <h3 id="formAnggotaTitle">Tambah Anggota</h3>
+
+                        <form id="formAnggota">
+                            <input type="hidden" id="editAnggotaId">
+
+                            <div class="form-grid">
+
+                                <div class="form-group">
+                                    <label>Nama Lengkap</label>
+                                    <input type="text" id="namaAnggota" placeholder="Nama lengkap" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>NIM</label>
+                                    <input type="text" id="nimAnggota" placeholder="Nomor Induk Mahasiswa" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Departemen</label>
+                                    <select id="departemenAnggota" required>
+                                        <option value="">Pilih Departemen</option>
+                                        <option>Bendahara</option>
+                                        <option>Sekretaris</option>
+                                        <option>Departemen Diklat</option>
+                                        <option>Departemen Jaringan</option>
+                                        <option>Departemen Kesehatan</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Jabatan</label>
+                                    <input type="text" id="jabatanAnggota" placeholder="Contoh: Anggota">
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Nomor HP</label>
+                                    <input type="tel" id="hpAnggota" placeholder="Nomor HP">
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Status</label>
+                                    <select id="statusAnggota">
+                                        <option>Aktif</option>
+                                        <option>Nonaktif</option>
+                                    </select>
+                                </div>
+
+                            </div>
+
+                            <div class="form-buttons">
+                                <button type="submit" class="btn-primary">
+                                    <i class="fa-solid fa-save"></i>
+                                    Simpan Anggota
+                                </button>
+
+                                <button type="button" id="batalEditAnggota" class="btn-secondary hidden">
+                                    Batal Edit
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="content-card">
+                        <div class="table-heading">
+                            <h3>Daftar Anggota</h3>
+                            <input type="search" id="cariAnggota" placeholder="Cari nama atau NIM...">
+                        </div>
+
+                        <div class="table-responsive">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Nama</th>
+                                        <th>NIM</th>
+                                        <th>Departemen</th>
+                                        <th>Jabatan</th>
+                                        <th>HP</th>
+                                        <th>Status</th>
+                                        <th>Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tabelAnggota"></tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </section>
+
+                <!-- ========== PROGRAM KERJA ========== -->
+
+                <section id="page-program" class="page-section">
+
+                    <div class="section-heading">
+                        <div>
+                            <h2>Program Kerja</h2>
+                            <p>Pengelolaan program kerja KSR ITG</p>
+                        </div>
+                    </div>
+
+                    <div class="content-card">
+                        <h3>Tambah Program Kerja</h3>
+
+                        <form id="formProgram">
+                            <div class="form-grid">
+
+                                <div class="form-group">
+                                    <label>Nama Program Kerja</label>
+                                    <input type="text" id="namaProgram" placeholder="Nama program kerja" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Departemen Pelaksana</label>
+                                    <select id="departemenProgram" required>
+                                        <option value="">Pilih Departemen</option>
+                                        <option>Bendahara</option>
+                                        <option>Sekretaris</option>
+                                        <option>Departemen Diklat</option>
+                                        <option>Departemen Jaringan</option>
+                                        <option>Departemen Kesehatan</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Tanggal Pelaksanaan</label>
+                                    <input type="date" id="tanggalProgram" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Penanggung Jawab</label>
+                                    <input type="text" id="pjProgram" placeholder="Nama penanggung jawab" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Status</label>
+                                    <select id="statusProgram">
+                                        <option>Direncanakan</option>
+                                        <option>Berlangsung</option>
+                                        <option>Selesai</option>
+                                    </select>
+                                </div>
+
+                            </div>
+
+                            <button class="btn-primary" type="submit">
+                                <i class="fa-solid fa-plus"></i>
+                                Simpan Program
+                            </button>
+                        </form>
+                    </div>
+
+                    <div class="content-card">
+                        <h3>Daftar Program Kerja</h3>
+                        <div class="table-responsive">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Program Kerja</th>
+                                        <th>Departemen</th>
+                                        <th>Tanggal</th>
+                                        <th>Penanggung Jawab</th>
+                                        <th>Status</th>
+                                        <th>Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tabelProgram"></tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </section>
+
+                <!-- ========== ANGGARAN ========== -->
+
+                <section id="page-anggaran" class="page-section">
+
+                    <div class="section-heading">
+                        <div>
+                            <h2>Pengelolaan Anggaran</h2>
+                            <p>Catatan pemasukan dan pengeluaran organisasi</p>
+                        </div>
+                    </div>
+
+                    <div class="stat-grid">
+                        <div class="stat-box">
+                            <div>
+                                <span>Total Pemasukan</span>
+                                <h2 id="totalPemasukan">Rp0</h2>
+                            </div>
+                        </div>
+
+                        <div class="stat-box">
+                            <div>
+                                <span>Total Pengeluaran</span>
+                                <h2 id="totalPengeluaran">Rp0</h2>
+                            </div>
+                        </div>
+
+                        <div class="stat-box">
+                            <div>
+                                <span>Saldo</span>
+                                <h2 id="saldoAnggaran">Rp0</h2>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-card">
+                        <h3>Tambah Transaksi</h3>
+
+                        <form id="formAnggaran">
+                            <div class="form-grid">
+
+                                <div class="form-group">
+                                    <label>Keterangan</label>
+                                    <input type="text" id="keteranganAnggaran" placeholder="Keterangan transaksi"
+                                        required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Jenis Transaksi</label>
+                                    <select id="jenisAnggaran" required>
+                                        <option value="">Pilih Jenis</option>
+                                        <option value="Pemasukan">Pemasukan</option>
+                                        <option value="Pengeluaran">Pengeluaran</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Nominal (Rp)</label>
+                                    <input type="number" id="nominalAnggaran" min="1" placeholder="Nominal" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Tanggal</label>
+                                    <input type="date" id="tanggalAnggaran" required>
+                                </div>
+
+                            </div>
+
+                            <button class="btn-primary" type="submit">
+                                <i class="fa-solid fa-save"></i>
+                                Simpan Transaksi
+                            </button>
+                        </form>
+                    </div>
+
+                    <div class="content-card">
+                        <h3>Riwayat Anggaran</h3>
+                        <div class="table-responsive">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Keterangan</th>
+                                        <th>Jenis</th>
+                                        <th>Nominal</th>
+                                        <th>Tanggal</th>
+                                        <th>Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tabelAnggaran"></tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </section>
+
+                <!-- ========== ARSIP DOKUMENTASI ========== -->
+
+                <section id="page-arsip" class="page-section">
+
+                    <div class="section-heading">
+                        <div>
+                            <h2>Arsip Dokumentasi</h2>
+                            <p>
+                                Arsip foto, video, dan dokumen setiap kegiatan
+                                serta program kerja KSR ITG.
+                            </p>
+                        </div>
+                        <i class="fa-solid fa-folder-open section-icon"></i>
+                    </div>
+
+                    <div class="stat-grid">
+                        <div class="stat-box">
+                            <div>
+                                <span>Total Arsip</span>
+                                <h2 id="totalArsip">0</h2>
+                            </div>
+                        </div>
+
+                        <div class="stat-box">
+                            <div>
+                                <span>Total File</span>
+                                <h2 id="totalFile">0</h2>
+                            </div>
+                        </div>
+
+                        <div class="stat-box">
+                            <div>
+                                <span>Arsip Program Kerja</span>
+                                <h2 id="totalProgramArsip">0</h2>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-card">
+                        <h3>Tambah Dokumentasi</h3>
+                        <p class="form-description">
+                            Isi informasi kegiatan dan unggah file dokumentasi.
+                        </p>
+
+                        <form id="formArsip">
+
+                            <div class="form-grid">
+
+                                <div class="form-group">
+                                    <label>Nama Kegiatan / Program Kerja</label>
+                                    <input type="text" id="namaArsip" placeholder="Nama kegiatan" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Jenis Arsip</label>
+                                    <select id="jenisArsip" required>
+                                        <option value="">Pilih jenis</option>
+                                        <option value="Kegiatan">Kegiatan</option>
+                                        <option value="Program Kerja">Program Kerja</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Departemen Pelaksana</label>
+                                    <select id="departemenArsip" required>
+                                        <option value="">Pilih Departemen</option>
+                                        <option>Bendahara</option>
+                                        <option>Sekretaris</option>
+                                        <option>Departemen Diklat</option>
+                                        <option>Departemen Jaringan</option>
+                                        <option>Departemen Kesehatan</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Tanggal Pelaksanaan</label>
+                                    <input type="date" id="tanggalArsip" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Penanggung Jawab</label>
+                                    <input type="text" id="pjArsip" placeholder="Nama penanggung jawab" required>
+                                </div>
+
+                                <div class="form-group full-width">
+                                    <label>Keterangan Kegiatan</label>
+                                    <textarea id="keteranganArsip" rows="3"
+                                        placeholder="Deskripsi kegiatan..."></textarea>
+                                </div>
+
+                                <div class="form-group full-width">
+                                    <label>Upload Dokumentasi</label>
+                                    <div class="upload-box">
+                                        <i class="fa-solid fa-cloud-arrow-up"></i>
+                                        <p>Pilih foto, video, atau dokumen</p>
+                                        <small>
+                                            Bisa memilih beberapa file sekaligus.
+                                        </small>
+                                        <input type="file" id="fileArsip" multiple
+                                            accept="image/*,video/*,.pdf,.doc,.docx,.xls,.xlsx,.ppt,.pptx,.txt"
+                                            required>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <button type="submit" class="btn-primary">
+                                <i class="fa-solid fa-folder-plus"></i>
+                                Simpan Dokumentasi
+                            </button>
+
+                        </form>
+                    </div>
+
+                    <div class="content-card">
+                        <div class="table-heading">
+                            <div>
+                                <h3>Daftar Arsip Dokumentasi</h3>
+                                <p class="form-description">
+                                    Cari dan lihat dokumentasi yang sudah disimpan.
+                                </p>
+                            </div>
+
+                            <input type="search" id="cariArsip" placeholder="Cari arsip...">
+                        </div>
+
+                        <div class="filter-row">
+                            <select id="filterArsip">
+                                <option value="">Semua Jenis</option>
+                                <option value="Kegiatan">Kegiatan</option>
+                                <option value="Program Kerja">Program Kerja</option>
+                            </select>
+
+                            <select id="filterTahun">
+                                <option value="">Semua Tahun</option>
+                            </select>
+                        </div>
+
+                        <div id="daftarArsip" class="arsip-grid">
+                            <p class="empty-message">
+                                Belum ada dokumentasi.
+                            </p>
+                        </div>
+                    </div>
+
+                </section>
+
+                <!-- ========== LAPORAN ========== -->
+
+                <section id="page-laporan" class="page-section">
+
+                    <div class="section-heading">
+                        <div>
+                            <h2>Laporan Organisasi</h2>
+                            <p>Rekapitulasi data KSR ITG</p>
+                        </div>
+                    </div>
+
+                    <div class="content-card">
+                        <h3>Ringkasan Organisasi</h3>
+
+                        <div class="report-list">
+                            <div>
+                                <span>Total Anggota</span>
+                                <strong id="lapAnggota">0</strong>
+                            </div>
+
+                            <div>
+                                <span>Total Program Kerja</span>
+                                <strong id="lapProgram">0</strong>
+                            </div>
+
+                            <div>
+                                <span>Total Arsip Dokumentasi</span>
+                                <strong id="lapArsip">0</strong>
+                            </div>
+
+                            <div>
+                                <span>Total Pemasukan</span>
+                                <strong id="lapPemasukan">Rp0</strong>
+                            </div>
+
+                            <div>
+                                <span>Total Pengeluaran</span>
+                                <strong id="lapPengeluaran">Rp0</strong>
+                            </div>
+
+                            <div>
+                                <span>Saldo Akhir</span>
+                                <strong id="lapSaldo">Rp0</strong>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-card">
+                        <h3>Ekspor Data</h3>
+                        <p class="form-description">
+                            Unduh rekapitulasi data organisasi dalam format CSV.
+                        </p>
+
+                        <div class="export-buttons">
+                            <button class="btn-primary" data-export="anggota">
+                                <i class="fa-solid fa-download"></i>
+                                Data Anggota
+                            </button>
+
+                            <button class="btn-primary" data-export="program">
+                                <i class="fa-solid fa-download"></i>
+                                Program Kerja
+                            </button>
+
+                            <button class="btn-primary" data-export="anggaran">
+                                <i class="fa-solid fa-download"></i>
+                                Data Anggaran
+                            </button>
+
+                            <button class="btn-primary" data-export="arsip">
+                                <i class="fa-solid fa-download"></i>
+                                Data Arsip
+                            </button>
+                        </div>
+                    </div>
+
+                </section>
+
+                <!-- ========== INFORMASI ORGANISASI ========== -->
+
+                <section id="page-organisasi" class="page-section">
+
+                    <div class="section-heading">
+                        <div>
+                            <h2>Informasi Organisasi</h2>
+                            <p>Identitas organisasi</p>
+                        </div>
+                    </div>
+
+                    <div class="content-card organization-card">
+
+                        <div class="organization-identity">
+
+                            <div class="organization-logo">
+                                <img src="assets/logo-ksr.png" alt="Logo KSR PMI Unit ITG">
+                            </div>
+
+                            <div class="organization-details">
+                                <h2>UKM Korps Sukarelawan</h2>
+                                <p>Institut Teknologi Garut</p>
+                                <span>Salam Kemanusiaan</span>
+                            </div>
+
+                        </div>
+
+                        <div class="organization-description">
+                            <h3>Tentang Organisasi</h3>
+                            <p>
+                                Korps Sukarelawan Palang Merah Indonesia
+                                Unit Institut Teknologi Garut merupakan
+                                organisasi kemanusiaan yang menjadi wadah
+                                pengembangan kepedulian sosial, pengetahuan,
+                                dan keterampilan kerelawanan mahasiswa.
+                            </p>
+                        </div>
+
+                    </div>
+
+                </section>
+
+            </div>
+
+            <footer class="main-footer">
+                © 2026 KSR PMI Unit Institut Teknologi Garut
+            </footer>
+
+        </main>
+    </div>
+
+</body>
+
+</html>
