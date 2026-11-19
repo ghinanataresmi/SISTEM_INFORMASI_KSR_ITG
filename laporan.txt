@@ -1,0 +1,568 @@
+LAPORAN SISTEM INFORMASI ORGANISASI KSR ITG
+
+Nama: Ghina Nataresmi Shofuro
+NIM: 2406116
+Kelas: Informatika C
+Mata Kuliah: pemrograman Web
+Dosen Pengampu: Ade sutedi,S.T.,M.KOM
+
+JUDUL:
+SISTEM INFORMASI ORGANISASI KORP SUKARELA (KSR) INSTITUT TEKNOLOGI GARUT BERBASIS WEB
+
+==================================================
+1. CARA KERJA SISTEM/APLIKASI
+==================================================
+
+A. Gambaran Umum Cara Kerja Aplikasi
+
+Sistem Informasi Organisasi KSR ITG merupakan aplikasi berbasis web yang dibuat untuk membantu proses pengelolaan administrasi dan informasi organisasi. Aplikasi ini dirancang agar beberapa jenis data organisasi dapat dikelola melalui satu halaman sistem sehingga pengguna tidak perlu melakukan pencatatan secara terpisah.
+
+Aplikasi dikembangkan menggunakan tiga teknologi utama, yaitu HTML, CSS, dan JavaScript. HTML berfungsi membangun struktur halaman, CSS mengatur tampilan aplikasi, sedangkan JavaScript digunakan untuk menjalankan proses pengolahan data dan memberikan interaksi kepada pengguna.
+
+Ketika aplikasi dibuka melalui browser, browser akan membaca file HTML sebagai halaman utama. Selanjutnya, file CSS digunakan untuk menampilkan desain halaman, sedangkan file JavaScript menjalankan fungsi-fungsi yang dibutuhkan oleh aplikasi.
+
+Setiap tindakan pengguna, seperti menekan tombol, mengisi formulir, menambahkan data, atau menghapus informasi, akan diproses oleh JavaScript. Hasil proses tersebut kemudian ditampilkan kembali pada halaman melalui manipulasi DOM.
+
+B. Proses Login dan Akses Sistem
+
+Login merupakan proses awal untuk mengakses sistem informasi. Pada bagian ini, pengguna memasukkan informasi yang diminta pada halaman login sesuai dengan mekanisme yang telah diterapkan.
+
+JavaScript berfungsi mengambil nilai yang dimasukkan melalui formulir, kemudian memprosesnya berdasarkan ketentuan login pada aplikasi.
+
+Apabila informasi yang dimasukkan sesuai dengan ketentuan sistem, pengguna dapat melanjutkan ke halaman utama. Jika tidak sesuai, sistem dapat memberikan pemberitahuan agar pengguna melakukan pemeriksaan kembali.
+
+Tujuan adanya halaman login adalah memberikan pembatasan akses terhadap halaman utama aplikasi sehingga penggunaan sistem menjadi lebih terarah.
+
+C. Proses Kerja Dashboard
+
+Dashboard merupakan halaman utama yang digunakan untuk menampilkan gambaran umum informasi organisasi KSR ITG.
+
+Pada bagian dashboard terdapat menu navigasi yang menghubungkan pengguna dengan berbagai fitur aplikasi, seperti data anggota, program kerja, keuangan, dan arsip.
+
+Dashboard juga menampilkan informasi ringkasan, seperti jumlah anggota dan jumlah program kerja. Informasi tersebut diperoleh dari data yang tersimpan di dalam sistem.
+
+Sebagai contoh, ketika pengguna menambahkan data anggota baru, jumlah anggota dapat diperbarui secara otomatis sesuai jumlah data yang tersimpan.
+
+Dashboard memiliki fungsi penting karena menjadi pusat navigasi dan memberikan gambaran mengenai informasi yang dikelola oleh aplikasi.
+
+D. Proses Kerja Pengelolaan Data Anggota
+
+Menu data anggota digunakan untuk mencatat dan mengelola informasi anggota organisasi KSR ITG.
+
+Pengguna dapat memasukkan informasi anggota melalui formulir yang telah disediakan. Data yang dimasukkan meliputi nama anggota, Nomor Induk Mahasiswa (NIM), dan jabatan anggota.
+
+Proses pengelolaan data anggota berjalan melalui beberapa tahapan:
+
+1. Pengguna membuka menu data anggota.
+2. Sistem menampilkan formulir untuk memasukkan informasi anggota.
+3. Pengguna mengisi nama, NIM, dan jabatan sesuai informasi yang dimiliki.
+4. Setelah formulir dikirim, JavaScript mengambil nilai dari setiap input.
+5. Data diproses dan dimasukkan ke dalam kumpulan data anggota.
+6. Data kemudian disimpan menggunakan LocalStorage.
+7. Sistem menampilkan data anggota pada halaman dalam bentuk daftar.
+
+Selain menambahkan data, sistem juga menyediakan fungsi pengelolaan untuk mengubah dan menghapus informasi anggota sesuai fitur yang tersedia.
+
+Penyimpanan menggunakan LocalStorage bertujuan agar informasi anggota tetap tersimpan meskipun halaman browser dimuat ulang. Data dapat dibaca kembali ketika aplikasi dibuka melalui browser yang sama selama penyimpanan browser tidak dihapus.
+
+Dengan adanya fitur ini, pengelolaan informasi anggota menjadi lebih terstruktur dibandingkan pencatatan yang hanya dilakukan secara manual.
+
+E. Proses Kerja Pengelolaan Program Kerja
+
+Menu program kerja digunakan untuk menyimpan informasi kegiatan yang direncanakan atau dilaksanakan oleh organisasi KSR ITG.
+
+Program kerja merupakan salah satu bagian penting dalam kegiatan organisasi karena setiap kegiatan membutuhkan pencatatan informasi agar lebih mudah dipantau dan dikelola.
+
+Pada menu ini terdapat formulir untuk memasukkan beberapa informasi, yaitu:
+
+1. Nama Program Kerja
+
+Digunakan untuk mencatat nama atau judul kegiatan yang akan dilaksanakan oleh organisasi.
+
+2. Tanggal Program Kerja
+
+Digunakan untuk mencatat tanggal pelaksanaan kegiatan sehingga informasi waktu kegiatan dapat diketahui.
+
+3. Deskripsi Program Kerja
+
+Digunakan untuk memberikan keterangan tambahan mengenai kegiatan, seperti tujuan, gambaran kegiatan, atau informasi lain yang berkaitan dengan program kerja.
+
+Tahapan proses kerja program kerja adalah sebagai berikut:
+
+1. Pengguna membuka menu program kerja.
+2. Sistem menampilkan formulir penambahan program.
+3. Pengguna memasukkan nama kegiatan, tanggal, dan deskripsi.
+4. JavaScript mengambil data dari formulir.
+5. Data dimasukkan ke dalam kumpulan data program kerja.
+6. Sistem menyimpan data menggunakan LocalStorage.
+7. Daftar program kerja ditampilkan kembali pada halaman.
+
+Data program kerja dapat ditampilkan dan dikelola kembali sesuai fungsi yang tersedia. Dengan demikian, pengguna dapat mengetahui kegiatan yang telah dicatat dan melakukan pengelolaan informasi apabila diperlukan.
+
+F. Proses Kerja Pengelolaan Keuangan
+
+Menu keuangan digunakan untuk membantu pencatatan transaksi pemasukan dan pengeluaran organisasi.
+
+Pengelolaan keuangan merupakan bagian penting dalam administrasi organisasi karena setiap transaksi perlu dicatat agar kondisi keuangan dapat diketahui dengan lebih jelas.
+
+Pada aplikasi ini terdapat dua jenis transaksi, yaitu pemasukan dan pengeluaran.
+
+1. Pemasukan
+
+Pemasukan merupakan seluruh uang yang diterima oleh organisasi. Pemasukan dapat berasal dari berbagai sumber, misalnya iuran anggota, dana kegiatan, atau sumber pemasukan organisasi lainnya.
+
+Pengguna memasukkan jenis transaksi, keterangan transaksi, dan jumlah uang. Setelah formulir dikirim, sistem menyimpan transaksi sebagai data pemasukan.
+
+2. Pengeluaran
+
+Pengeluaran merupakan uang yang digunakan untuk memenuhi kebutuhan organisasi.
+
+Contohnya adalah pembelian perlengkapan, biaya pelaksanaan kegiatan, dan kebutuhan operasional lainnya.
+
+Pengguna memasukkan informasi pengeluaran melalui formulir yang tersedia. Data tersebut kemudian diproses dan disimpan oleh sistem.
+
+3. Perhitungan Saldo
+
+Sistem melakukan perhitungan saldo berdasarkan jumlah pemasukan dan pengeluaran yang telah dicatat.
+
+Rumus yang digunakan adalah:
+
+Saldo = Total Pemasukan - Total Pengeluaran
+
+Contoh perhitungan:
+
+Total pemasukan = Rp1.000.000
+Total pengeluaran = Rp300.000
+
+Saldo akhir = Rp1.000.000 - Rp300.000
+Saldo akhir = Rp700.000
+
+Hasil perhitungan tersebut ditampilkan pada halaman keuangan sehingga pengguna dapat mengetahui jumlah saldo berdasarkan transaksi yang telah dimasukkan.
+
+Data keuangan disimpan menggunakan LocalStorage agar transaksi dapat ditampilkan kembali ketika aplikasi dibuka melalui browser yang sama.
+
+G. Proses Kerja Pengelolaan Arsip
+
+Menu arsip digunakan untuk menyimpan dan mengelola dokumen digital yang berkaitan dengan kegiatan organisasi KSR ITG.
+
+Arsip merupakan bagian penting dalam administrasi organisasi karena dokumen dapat menjadi sumber informasi dan bukti kegiatan yang telah dilaksanakan.
+
+Melalui menu arsip, pengguna dapat melakukan beberapa proses berikut:
+
+1. Upload Arsip
+
+Fitur upload digunakan untuk memasukkan dokumen dari perangkat ke dalam aplikasi. Pengguna memilih file melalui fasilitas pemilihan file yang tersedia pada halaman.
+
+Setelah file dipilih, JavaScript memproses file tersebut dan menyimpannya menggunakan IndexedDB.
+
+2. Download Arsip
+
+Fitur download digunakan untuk mengambil kembali file yang sebelumnya telah disimpan. Dengan adanya fitur ini, dokumen dapat diakses kembali ketika dibutuhkan.
+
+3. Hapus Arsip
+
+Fitur hapus digunakan untuk menghilangkan dokumen yang sudah tidak diperlukan dari penyimpanan aplikasi.
+
+Penghapusan dilakukan terhadap arsip yang dipilih oleh pengguna.
+
+4. Pencarian dan Filter Arsip
+
+Fitur pencarian atau filter digunakan untuk membantu pengguna menemukan dokumen tertentu berdasarkan informasi yang tersedia pada arsip.
+
+Dengan adanya fasilitas ini, pengguna tidak perlu memeriksa seluruh daftar dokumen satu per satu ketika mencari file tertentu.
+
+Penyimpanan arsip menggunakan IndexedDB karena teknologi ini mendukung penyimpanan data berbentuk objek dan file pada browser.
+
+H. Proses Penyimpanan Data Sistem
+
+Aplikasi menggunakan LocalStorage dan IndexedDB sebagai media penyimpanan data pada browser.
+
+1. LocalStorage
+
+LocalStorage digunakan untuk menyimpan data anggota, program kerja, dan keuangan.
+
+Data disimpan dalam format teks sehingga JavaScript dapat mengambil dan mengolahnya kembali.
+
+Ketika pengguna menambahkan informasi, sistem memperbarui data yang tersimpan. Ketika halaman dibuka kembali, data dapat dibaca dan ditampilkan pada halaman aplikasi.
+
+2. IndexedDB
+
+IndexedDB digunakan untuk menyimpan data arsip organisasi.
+
+Berbeda dengan LocalStorage yang umumnya digunakan untuk menyimpan data berbentuk teks, IndexedDB dapat digunakan untuk menyimpan objek dan file.
+
+Kedua teknologi tersebut memungkinkan aplikasi menyimpan informasi secara lokal tanpa harus terhubung dengan database server.
+
+I. Penerapan DOM pada Aplikasi
+
+DOM atau Document Object Model merupakan konsep yang digunakan untuk menghubungkan JavaScript dengan elemen-elemen HTML.
+
+Melalui DOM, JavaScript dapat membaca, mengubah, menambahkan, dan menghapus elemen halaman berdasarkan tindakan pengguna.
+
+Beberapa metode DOM yang digunakan dalam aplikasi adalah:
+
+1. getElementById()
+
+Metode ini digunakan untuk mengambil elemen HTML berdasarkan ID yang telah ditentukan.
+
+Contohnya, mengambil elemen formulir untuk membaca nama anggota atau mengambil elemen yang digunakan untuk menampilkan saldo.
+
+2. querySelectorAll()
+
+Metode ini digunakan untuk mengambil beberapa elemen HTML berdasarkan selector tertentu.
+
+Contohnya, mengambil seluruh elemen menu atau bagian halaman untuk mengatur tampilan navigasi.
+
+3. addEventListener()
+
+Metode ini digunakan untuk mendeteksi tindakan pengguna, seperti klik tombol dan pengiriman formulir.
+
+Ketika suatu tindakan dilakukan, JavaScript akan menjalankan fungsi yang telah dihubungkan dengan elemen tersebut.
+
+4. createElement()
+
+Metode ini digunakan untuk membuat elemen HTML baru melalui JavaScript.
+
+Contohnya, membuat elemen untuk menampilkan informasi anggota, program kerja, atau transaksi keuangan.
+
+5. appendChild()
+
+Metode ini digunakan untuk memasukkan elemen baru ke dalam elemen induk.
+
+Contohnya, menambahkan data anggota ke dalam bagian daftar anggota.
+
+6. innerHTML
+
+Metode ini digunakan untuk mengubah isi HTML suatu elemen.
+
+Contohnya, memperbarui tampilan daftar anggota setelah pengguna melakukan perubahan data.
+
+7. textContent
+
+Metode ini digunakan untuk mengubah isi teks pada elemen HTML.
+
+Contohnya, memperbarui informasi jumlah anggota dan saldo keuangan.
+
+Penerapan DOM membuat aplikasi menjadi lebih interaktif karena perubahan informasi dapat langsung ditampilkan pada halaman berdasarkan proses yang dilakukan oleh pengguna.
+
+==================================================
+2. SPESIFIKASI KEBUTUHAN DAN TOOLS PENDUKUNG
+==================================================
+
+A. Spesifikasi Kebutuhan Perangkat Keras (Hardware)
+
+Perangkat keras merupakan komponen fisik yang digunakan untuk membuat, menjalankan, dan menguji aplikasi.
+
+1. Laptop atau Komputer
+
+Laptop atau komputer merupakan perangkat utama dalam proses pengembangan aplikasi. Perangkat ini digunakan untuk menulis kode program, menyimpan file project, menjalankan editor kode, dan menguji hasil aplikasi melalui browser.
+
+2. Processor
+
+Processor berfungsi menjalankan instruksi dari sistem operasi, editor kode, browser, dan aplikasi yang sedang digunakan.
+
+Processor diperlukan agar proses pengembangan dan pengujian aplikasi dapat berjalan dengan baik.
+
+3. RAM
+
+RAM digunakan untuk menyimpan data sementara ketika perangkat menjalankan beberapa aplikasi secara bersamaan.
+
+Dalam pengembangan sistem ini, RAM membantu menjalankan Visual Studio Code dan browser tanpa mengganggu proses pengeditan maupun pengujian aplikasi.
+
+4. Keyboard
+
+Keyboard digunakan untuk memasukkan kode program HTML, CSS, dan JavaScript serta mengisi informasi ketika melakukan pengujian aplikasi.
+
+5. Mouse atau Touchpad
+
+Mouse atau touchpad digunakan untuk memilih menu, membuka file, mengoperasikan editor kode, dan melakukan pengujian fungsi aplikasi.
+
+6. Media Penyimpanan
+
+Media penyimpanan digunakan untuk menyimpan folder project yang terdiri dari file HTML, CSS, JavaScript, serta aset pendukung seperti logo organisasi.
+
+B. Spesifikasi Kebutuhan Perangkat Lunak (Software)
+
+Perangkat lunak merupakan program yang digunakan untuk mendukung proses pembuatan dan pengoperasian aplikasi.
+
+1. Sistem Operasi
+
+Sistem operasi merupakan perangkat lunak utama yang mengatur seluruh aktivitas komputer.
+
+Sistem operasi digunakan untuk menjalankan editor kode, browser, serta mengelola folder dan file project.
+
+2. Visual Studio Code
+
+Visual Studio Code merupakan aplikasi editor kode yang digunakan untuk menulis, mengedit, dan mengelola kode program.
+
+Dalam pembuatan Sistem Informasi KSR ITG, Visual Studio Code digunakan untuk membuat dan mengatur file:
+
+- index.html
+- style.css
+- app.js
+
+Editor ini membantu proses penulisan kode karena menyediakan pewarnaan sintaks, penanda kesalahan tertentu, dan pengelolaan file project.
+
+3. Google Chrome atau Microsoft Edge
+
+Browser digunakan untuk menjalankan aplikasi berbasis web.
+
+File HTML dibuka melalui browser sehingga pengguna dapat melihat tampilan aplikasi dan mencoba fungsi-fungsi yang telah dibuat.
+
+Browser juga digunakan untuk menguji apakah CSS dan JavaScript telah terhubung dengan benar.
+
+4. HTML (HyperText Markup Language)
+
+HTML merupakan bahasa markup yang digunakan untuk membangun struktur halaman web.
+
+Dalam aplikasi KSR ITG, HTML digunakan untuk membuat:
+
+- Header atau bagian kepala halaman.
+- Navigasi menu aplikasi.
+- Formulir input data.
+- Bagian dashboard.
+- Bagian data anggota.
+- Bagian program kerja.
+- Bagian keuangan.
+- Bagian arsip.
+- Footer atau bagian bawah halaman.
+
+HTML menjadi dasar pembentukan seluruh tampilan dan bagian aplikasi.
+
+5. CSS (Cascading Style Sheets)
+
+CSS digunakan untuk mengatur tampilan dan desain halaman web agar lebih menarik, rapi, dan mudah digunakan.
+
+CSS mengatur beberapa bagian, seperti:
+
+- Warna latar belakang halaman.
+- Warna tombol dan menu navigasi.
+- Jenis dan ukuran tulisan.
+- Jarak antar-elemen.
+- Ukuran formulir.
+- Tata letak halaman.
+- Tampilan kartu informasi.
+- Pengaturan tampilan pada ukuran layar yang berbeda jika diterapkan.
+
+Dengan CSS, tampilan aplikasi dapat dibuat lebih konsisten sehingga pengguna lebih mudah memahami susunan menu dan informasi.
+
+6. JavaScript
+
+JavaScript merupakan bahasa pemrograman yang digunakan untuk menjalankan fungsi dan logika aplikasi.
+
+Dalam Sistem Informasi KSR ITG, JavaScript memiliki peran penting dalam mengolah informasi yang dimasukkan oleh pengguna.
+
+JavaScript digunakan untuk:
+
+- Mengambil nilai dari formulir.
+- Memproses data anggota.
+- Mengelola program kerja.
+- Menghitung pemasukan dan pengeluaran.
+- Menghitung saldo keuangan.
+- Mengelola dokumen arsip.
+- Menampilkan dan memperbarui data.
+- Menangani tindakan pengguna melalui tombol dan formulir.
+
+Tanpa JavaScript, halaman HTML hanya menampilkan struktur dan CSS hanya mengatur tampilannya. JavaScript membuat aplikasi dapat menjalankan berbagai fungsi interaktif.
+
+C. Teknologi Penyimpanan Pendukung
+
+1. LocalStorage
+
+LocalStorage merupakan fasilitas penyimpanan pada browser yang memungkinkan aplikasi menyimpan informasi dalam bentuk pasangan kunci dan nilai.
+
+Dalam aplikasi KSR ITG, LocalStorage digunakan untuk menyimpan data anggota, program kerja, dan transaksi keuangan.
+
+Data biasanya diubah menjadi format JSON sebelum disimpan agar dapat diolah kembali menggunakan JavaScript.
+
+LocalStorage memiliki kelebihan berupa penggunaan yang sederhana dan tidak membutuhkan database server.
+
+Namun, penyimpanannya bersifat lokal pada browser dan perangkat yang digunakan. Oleh karena itu, data tidak otomatis tersedia pada perangkat lain.
+
+2. IndexedDB
+
+IndexedDB merupakan teknologi penyimpanan berbasis browser yang dapat digunakan untuk menyimpan data dengan struktur lebih kompleks.
+
+Dalam aplikasi KSR ITG, IndexedDB digunakan untuk menyimpan dokumen atau file arsip organisasi.
+
+Teknologi ini mendukung penyimpanan objek dan data dalam jumlah yang lebih fleksibel dibandingkan LocalStorage.
+
+Penggunaan IndexedDB membantu aplikasi mengelola dokumen tanpa harus mengirimkannya ke server eksternal.
+
+3. JSON (JavaScript Object Notation)
+
+JSON merupakan format pertukaran dan penyimpanan data yang memiliki struktur sederhana.
+
+Pada aplikasi ini, JSON digunakan untuk mengubah data JavaScript menjadi format teks agar dapat disimpan pada LocalStorage.
+
+Ketika data akan digunakan kembali, format tersebut dibaca dan diubah menjadi objek JavaScript sehingga dapat diproses oleh sistem.
+
+D. Struktur Folder Aplikasi
+
+Agar file project mudah dikelola, aplikasi disusun menggunakan beberapa folder dan file yang memiliki fungsi berbeda.
+
+Struktur folder:
+
+KSR-ITG/
+|
+|-- index.html
+|
+|-- css/
+|   |-- style.css
+|
+|-- js/
+|   |-- app.js
+|
+|-- assets/
+    |-- logo-ksr.png
+
+Penjelasan masing-masing file:
+
+1. index.html
+
+File utama yang berisi struktur halaman aplikasi. File ini menghubungkan tampilan HTML dengan file CSS dan JavaScript.
+
+2. css/style.css
+
+File yang berisi kode CSS untuk mengatur desain, warna, ukuran, tata letak, dan tampilan komponen aplikasi.
+
+3. js/app.js
+
+File yang berisi kode JavaScript untuk menjalankan fungsi aplikasi, mengolah data, memproses formulir, memanipulasi DOM, dan mengelola penyimpanan.
+
+4. assets/logo-ksr.png
+
+Folder assets digunakan untuk menyimpan gambar atau file pendukung yang digunakan dalam tampilan aplikasi, misalnya logo organisasi.
+
+E. Hubungan Antar-Teknologi
+
+HTML, CSS, dan JavaScript bekerja secara saling melengkapi dalam membangun aplikasi.
+
+HTML menyediakan struktur halaman yang akan ditampilkan kepada pengguna.
+
+CSS mengatur tampilan dari struktur tersebut sehingga aplikasi memiliki desain yang lebih teratur.
+
+JavaScript menjalankan fungsi aplikasi dan menghubungkan tindakan pengguna dengan proses pengolahan data.
+
+DOM menjadi penghubung antara JavaScript dan elemen HTML sehingga isi halaman dapat diperbarui secara dinamis.
+
+LocalStorage dan IndexedDB berfungsi sebagai media penyimpanan agar data yang telah dimasukkan dapat digunakan kembali.
+
+Dengan kerja sama teknologi tersebut, aplikasi dapat menjalankan fungsi pengelolaan informasi organisasi dalam satu sistem berbasis web.
+
+==================================================
+3. OUTPUT SISTEM/APLIKASI
+==================================================
+
+A. Output Halaman Login
+
+Output pertama yang dapat ditampilkan oleh sistem adalah halaman login.
+
+Halaman ini berfungsi sebagai tempat pengguna memasukkan informasi yang dibutuhkan untuk mengakses aplikasi.
+
+Pada halaman login terdapat komponen formulir yang digunakan untuk memasukkan informasi pengguna.
+
+Setelah informasi dimasukkan, JavaScript memproses data sesuai mekanisme autentikasi yang diterapkan.
+
+Tujuan output halaman login adalah menyediakan tahapan akses sebelum pengguna menggunakan fitur utama aplikasi.
+
+B. Output Halaman Dashboard
+
+Dashboard menghasilkan tampilan utama yang berisi ringkasan informasi dan navigasi aplikasi.
+
+Pada bagian ini pengguna dapat melihat menu-menu yang tersedia dan memilih bagian yang ingin digunakan.
+
+Dashboard juga menampilkan informasi ringkas mengenai jumlah anggota dan program kerja yang tersimpan.
+
+Output dashboard membantu pengguna memperoleh gambaran awal mengenai data organisasi tanpa harus membuka setiap menu satu per satu.
+
+C. Output Halaman Data Anggota
+
+Halaman data anggota menghasilkan tampilan berupa daftar informasi anggota yang telah dimasukkan ke dalam sistem.
+
+Data yang ditampilkan mencakup nama anggota, NIM, dan jabatan.
+
+Setelah pengguna menambahkan data baru, sistem akan memperbarui daftar anggota sehingga informasi terbaru dapat terlihat.
+
+Pengguna juga dapat mengelola data sesuai fungsi yang tersedia, seperti melakukan perubahan atau penghapusan informasi.
+
+Output dari fitur ini adalah kumpulan data anggota yang tersusun dalam halaman aplikasi dan dapat digunakan sebagai informasi administrasi organisasi.
+
+D. Output Halaman Program Kerja
+
+Halaman program kerja menghasilkan daftar kegiatan organisasi yang telah dicatat melalui sistem.
+
+Setiap data program kerja memuat nama kegiatan, tanggal pelaksanaan, dan deskripsi kegiatan.
+
+Informasi tersebut membantu pengguna mengetahui kegiatan yang telah dimasukkan dan melihat keterangan yang berkaitan dengan setiap program.
+
+Dengan adanya output ini, data kegiatan organisasi dapat tersusun lebih rapi dan mudah diperiksa kembali.
+
+E. Output Halaman Keuangan
+
+Halaman keuangan menghasilkan informasi transaksi pemasukan dan pengeluaran organisasi.
+
+Setiap transaksi ditampilkan berdasarkan jenis transaksi, keterangan, dan jumlah uang.
+
+Sistem juga menghasilkan informasi saldo yang dihitung berdasarkan total pemasukan dikurangi total pengeluaran.
+
+Contoh output perhitungan:
+
+Total pemasukan: Rp1.000.000
+Total pengeluaran: Rp300.000
+Saldo: Rp700.000
+
+Informasi saldo tersebut membantu pengguna mengetahui kondisi keuangan berdasarkan transaksi yang telah dimasukkan.
+
+Output ini juga dapat digunakan sebagai bahan pemeriksaan pencatatan keuangan organisasi.
+
+F. Output Halaman Arsip
+
+Halaman arsip menghasilkan daftar dokumen yang telah dimasukkan ke dalam aplikasi.
+
+Dokumen yang disimpan dapat dikelola menggunakan fasilitas yang tersedia, seperti upload, download, hapus, dan pencarian atau filter.
+
+Output halaman arsip membantu pengguna menemukan dan mengakses kembali dokumen organisasi yang diperlukan.
+
+Dengan penyimpanan menggunakan IndexedDB, file dapat dikelola secara lokal melalui browser yang digunakan.
+
+G. Output Penyimpanan Data
+
+Selain menghasilkan tampilan informasi, aplikasi juga menghasilkan data yang tersimpan pada media penyimpanan browser.
+
+Data anggota, program kerja, dan keuangan disimpan menggunakan LocalStorage.
+
+Sementara itu, data dokumen arsip disimpan menggunakan IndexedDB.
+
+Penyimpanan tersebut memungkinkan informasi dipanggil kembali ketika aplikasi dibuka pada browser yang sama.
+
+Dengan demikian, pengguna tidak harus memasukkan ulang seluruh informasi setiap kali halaman dimuat ulang, selama data penyimpanan browser masih tersedia.
+
+H. Manfaat Output Aplikasi
+
+Output yang dihasilkan oleh Sistem Informasi Organisasi KSR ITG memberikan beberapa manfaat dalam pengelolaan administrasi organisasi.
+
+1. Membantu penyusunan informasi anggota sehingga data lebih mudah dilihat dan dikelola.
+
+2. Membantu pencatatan kegiatan organisasi melalui menu program kerja.
+
+3. Membantu pengelolaan transaksi keuangan dengan menampilkan pemasukan, pengeluaran, dan saldo.
+
+4. Membantu penyimpanan dokumen digital melalui menu arsip.
+
+5. Mempermudah pengguna mengakses beberapa jenis informasi organisasi melalui satu aplikasi.
+
+6. Mengurangi kebutuhan pencatatan yang terpisah karena beberapa kebutuhan administrasi telah disediakan dalam satu sistem.
+
+==================================================
+KESIMPULAN
+==================================================
+
+Berdasarkan penjelasan cara kerja, spesifikasi kebutuhan, tools pendukung, dan output sistem, Sistem Informasi Organisasi KSR ITG merupakan aplikasi berbasis web yang dikembangkan untuk membantu pengelolaan informasi dan administrasi organisasi.
+
+Aplikasi menggunakan HTML untuk membangun struktur halaman, CSS untuk mengatur tampilan, dan JavaScript untuk menjalankan proses pengolahan data serta interaksi pengguna.
+
+Penerapan DOM memungkinkan JavaScript memanipulasi elemen HTML sehingga informasi dapat diperbarui secara dinamis. Penggunaan LocalStorage dan IndexedDB membantu proses penyimpanan data anggota, program kerja, transaksi keuangan, dan dokumen arsip secara lokal pada browser.
+
+Melalui fitur-fitur yang tersedia, aplikasi dapat membantu pengelolaan informasi organisasi menjadi lebih terstruktur, mudah diakses, dan praktis digunakan.
+
